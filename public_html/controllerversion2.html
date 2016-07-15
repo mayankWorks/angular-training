@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="myapp">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="lib/angular.min.js"></script>
+        <script>
+        //create app using a global variable ctsApp
+        var myapp = angular.module('myapp',[]);//(string param, aray param)
+        //Build Controller
+        myapp.controller('WelcomeController',['$scope','$log',function($scope,$log){
+            //Augment $scope
+            
+            //but here we can transfer data even without scope
+            this.message = 'welcome';
+        
+        }]); // end of controller
+        </script>
+    </head>
+    <body>
+        <div ng-controller="WelcomeController as welcome">
+  
+       {{welcome.message}}
+       
+        <input type="button" value ="save" ng-click="save()"> 
+        
+        </div>
+    </body>
+</html>
+
