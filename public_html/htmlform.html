@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="myapp">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="lib/angular.min.js"></script>
+        <script>
+        //create app using a global variable ctsApp
+        var myapp = angular.module('myapp',[]);//(string param, aray param)
+        //Build Controller
+        myapp.controller('FormController',['$scope','$log',function($scope,$log){
+            //Augment $scope
+//        $scope.salary = 20*10000;
+//        $scope.name = 'Mayank';
+        // HAS a relationship - Scope has an employee
+        $scope.save=function(){
+            //var user = {};
+            //Read data from the form
+           // $log.info($scope.firstname + " " + $scope.middlename + " " + $scope.lastname);
+           $log.info($scope.user.firstname + " " + $scope.user.middlename + " " + $scope.user.lastname);
+            //send data to server
+           // user.firstname = $scope.firstname;
+           // user.middlename = $scope.middlename;
+           // user.lastname = $scope.lastname;
+            
+        //send data to server after converting to json(angular automatically converts object to json)
+       // sendDataToServer(JSON.stringify(user));
+        
+        console.log($scope.user);//user
+        }
+        
+        }]); // end of controller
+        </script>
+    </head>
+    <body>
+        <div ng-controller="FormController">
+  
+        <!-- ng-keyup is not used often , we use submit button-->
+        <input type="text" ng-model="user.firstname" placeholder="Enter name here">
+        <input type="text" ng-model="user.middlename" placeholder="Enter name here">
+        <input type="text" ng-model="user.lastname" placeholder="Enter name here">
+       
+        <input type="button" value ="save" ng-click="save()"> 
+        
+        </div>
+    </body>
+</html>
+

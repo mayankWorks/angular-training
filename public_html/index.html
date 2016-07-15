@@ -38,6 +38,7 @@ and open the template in the editor.
         //add APIs :  to add CRUD operations
         $scope.save = function(employee){
             console.log('save is called');
+            $scope.employees.push(employee);
             //return employees;
         };
         $scope.findAll = function(){
@@ -52,12 +53,13 @@ and open the template in the editor.
         $scope.update = function(id){
             
         };
+         $scope.bindme = function(id){
+             // to way data binding
+             // one model = another model
+            $scope.yourname = $scope.goodname;
+        };
         
-        
-        
-        
-        
-        }]);
+        }]); // end of controller
         </script>
     </head>
     <body>
@@ -78,13 +80,21 @@ and open the template in the editor.
                 <td >{{e.department}}</td>
             </tr>
         </table>
-        <div  ng-repeat="e in employees">
+<!--        <div  ng-repeat="e in employees">
             <p>Name : {{e.name}}</p>
             <p>Salary : {{e.salary}}</p>
             <p>Dept : {{e.department}}</p>
-        </div>
-        <input type="button" value ="save" ng-click="save()">    
+        </div>-->
+        <input type="button" value ="save" ng-click="save({
+                name:'Mayank',
+                salary:1000,
+                department:'Development'
+        })">
         <input type="button" value ="findAll" ng-click="findAll()">  
+        <!-- ng-keyup is not used often , we use submit button-->
+        <input type="text" ng-keyup="bindme()" ng-model="goodname" placeholder="Enter name here">
+        
+        <h1>Hello {{yourname}}</h1>
         </div>
     </body>
 </html>
