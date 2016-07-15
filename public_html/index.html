@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="myapp">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="lib/angular.min.js"></script>
+        <script>
+        //create app using a global variable ctsApp
+        var myapp = angular.module('myapp',[]);//(string param, aray param)
+        //Build Controller
+        myapp.controller('EmployeeController',['$scope',function($scope){
+            //Augment $scope
+//        $scope.salary = 20*10000;
+//        $scope.name = 'Mayank';
+        // HAS a relationship - Scope has an employee
+        $scope.employee={
+          name:'Mayank',
+          salary:1000,
+          department:'Development'
+        };
+        
+        }]);
+        </script>
+    </head>
+    <body>
+        <div ng-controller="EmployeeController">
+        <!-- Template-->
+<!--        Your Salary is {{salary}}
+        Your name is {{name}}-->
+            <p>Name : {{employee.name}}</p>
+            <p>Salary : {{employee.salary}}</p>
+            <p>Dept : {{employee.department}}</p>
+        </div>
+    </body>
+</html>
+
