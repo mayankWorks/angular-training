@@ -19,11 +19,43 @@ and open the template in the editor.
 //        $scope.salary = 20*10000;
 //        $scope.name = 'Mayank';
         // HAS a relationship - Scope has an employee
-        $scope.employee={
-          name:'Mayank',
-          salary:1000,
-          department:'Development'
+        $scope.employees=[{
+                name:'Mayank',
+                salary:1000,
+                department:'Development'
+        },
+        {
+              name:'Rohit',
+              salary:1000,
+              department:'Development'
+        },
+        {
+              name:'Navya',
+              salary:1000,
+              department:'Development'
+        }
+        ];
+        //add APIs :  to add CRUD operations
+        $scope.save = function(employee){
+            console.log('save is called');
+            //return employees;
         };
+        $scope.findAll = function(){
+            console.log('findAll is called');
+        };
+        $scope.findById = function(id){
+            
+        };
+        $scope.remove = function(id){
+            
+        };
+        $scope.update = function(id){
+            
+        };
+        
+        
+        
+        
         
         }]);
         </script>
@@ -33,9 +65,26 @@ and open the template in the editor.
         <!-- Template-->
 <!--        Your Salary is {{salary}}
         Your name is {{name}}-->
-            <p>Name : {{employee.name}}</p>
-            <p>Salary : {{employee.salary}}</p>
-            <p>Dept : {{employee.department}}</p>
+        <table border="1">
+            <tr>
+                <td>Name</td>
+                <td>Salary</td>
+                <td>Dept</td>
+            </tr>
+            <tr ng-repeat="e in employees">
+
+                <td >{{e.name}}</td>
+                <td >{{e.salary}}</td>
+                <td >{{e.department}}</td>
+            </tr>
+        </table>
+        <div  ng-repeat="e in employees">
+            <p>Name : {{e.name}}</p>
+            <p>Salary : {{e.salary}}</p>
+            <p>Dept : {{e.department}}</p>
+        </div>
+        <input type="button" value ="save" ng-click="save()">    
+        <input type="button" value ="findAll" ng-click="findAll()">  
         </div>
     </body>
 </html>
