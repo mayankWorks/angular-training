@@ -14,16 +14,24 @@ and open the template in the editor.
         //create app using a global variable ctsApp
         var myapp = angular.module('myapp',[]);//(string param, aray param)
         //Build Controller
-        myapp.controller('WelcomeController',['$scope','$log','welcomeservicefactory',function($scope,$log,welfact){
+        myapp.controller('WelcomeController',['$scope','$log','welcomeservicefactory',
+            'GreeterService',function($scope,$log,welfact,greeterProvider){
                        
-            $scope.message=welfact.greet();
-            console.log($scope.message);
+            $scope.message1=welfact.greet();
+            console.log($scope.message1);
+            
+            //provider
+            $scope.providerMessage = greeterProvider;
+            console.log($scope.providerMessage.message);
+            console.log($scope.providerMessage.whom);
             
         }]); // end of controller
     
     //Factory
     myapp.factory('welcomeservicefactory',[function(){
-            //see a service inside a factory
+         //see a service inside a factory
+         
+        // Another way : to return 
          var WelcomeService = function(){// THIS IS A CONSTRUCTOR PATTERN
              var greeter = 'Hello how are you ?';
              this.message='welcome';
@@ -31,27 +39,78 @@ and open the template in the editor.
                  return greeter;
              }
          } ;  
+         // Another way : to return 
          //return new WelcomeService();
-         var WelcomeServiceV2={// THIS IS A LITERAL PATTERN
+         /*var WelcomeServiceV2={// THIS IS A LITERAL PATTERN
           greet:function(){
               return 'Hello how is it going?';
           }   
          };
-         return new WelcomeService();
+         return WelcomeServiceV2;*/
             
+         return new WelcomeService();
+         
+         // Another way : to return 
+         /*return new function(){
+             var greeter = 'asdasdadsad';
+             this.message = 'welcome';
+             this.greet = function(){
+                 return greeter;
+             }
+         };*/
+         
+         // Another way : to return 
+         /*return{
+             greet:function(){
+                 return 'hellow??';
+                 }
+         };*/
+         
     }]);
     
-        </script>
+    //provider
+    myapp.provider('GreeterService', [function() {
+         
+         // greeter will hold your api logic
+            var greeter={message:'default message',
+                        whom:'whom',
+                        from:'from'};
+         
+            return{
+                //inside provider write configuration logic here
+                setConfig:function(value){
+                    greeter.message = value.message;//value;
+                    greeter.whom = value.whom;
+                    greeter.from = value.from;
+                },
+                
+                //$get is another factory method
+                //$get os tje provider api which return an object configured above
+                $get: function(){
+                    return greeter;//null
+                }
+            };
+    }]);
+    
+    //Provider configuration
+    myapp.config(['GreeterServiceProvider',function(gsProvider){
+            //gsProvider.setConfig('Hey I am configured');
+            gsProvider.setConfig({message:'Are you Angular js developer',
+                                  whom:'MAYANK',
+                                  from:'HR Team'});
+    }]);
+    
+    
+    </script>
     </head>
     <body>
         <!--alias name of the controller -->
-        <div ng-controller="WelcomeController as welcome">
+        <!--incase of this.message we must use alias name "WelcomeController as welcome" -->
+        <!--incase of $scope.message we must not use alias name -->
+        <div ng-controller="WelcomeController">
   
-       {{welcome.message}}
+        <p>{{message1}}</p>
       
-       
-               
-       
         <input type="button" value ="save" ng-click="save()"> 
         
         </div>

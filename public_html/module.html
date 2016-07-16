@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="myapp">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="lib/angular.min.js"></script>
+        <script>
+        //create app using a global variable ctsApp
+        var myapp = angular.module('myapp',['com.mayank.test']);//(string param, aray param)
+        myapp.controller('CustomerController',['$scope','CustomerFactory',function($scope,cusFactory){
+            $scope.save=function(){
+              cusFactory.save();  
+            };
+            $scope.findAll=function(){
+              cusFactory.findAll();  
+            };
+//            cusFactory.save();
+//            cusFactory.findAll();
+        }]);
+    
+        //sub module
+        var myappsubmodule = angular.module('com.mayank.test',[]);
+        
+        myapp.factory('CustomerFactory',[function(){
+       
+       return {
+         save:function(){
+             console.log('save is called');
+         } ,
+         findAll:function(){
+             console.log('findAll is called');
+         }
+       };
+            
+        }]); // end of sub module
+    
+    </script>
+    </head>
+    <body>
+        <!--alias name of the controller -->
+        <!--incase of this.message we must use alias name "WelcomeController as welcome" -->
+        <!--incase of $scope.message we must not use alias name -->
+        <div ng-controller="CustomerController">
+  
+        <p>{{message1}}</p>
+      
+        <input type="button" value ="save" ng-click="save()"> 
+        <input type="button" value ="findAll" ng-click="findAll()"> 
+
+        
+        </div>
+    </body>
+</html>
+
