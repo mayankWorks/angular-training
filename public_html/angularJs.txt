@@ -310,6 +310,56 @@ myapp.directive('hello',function(){
 
 });
 
+-----------------------------
+www.buildwith.com
+
+-----------------------------------------------------------------------------------
+Scope Events Propagation :
+
+scope can propagate events to its children or parents like DOM event
+propagation.
+
+$broadcast('eventname');
+Dispatches an event name downwards to all child scopes ( and their children)
+notifying the registered $rootScope,Scope
+listeners.
+
+$emit(name,args);
+Dispatches an event name upwards through the scope hierarchy notifying the registered $rootScope.Scope listeners
+
+CSS with superpowers
+http://sass-lang.com/
+
+SASS is: Declarative ,reusable, css language
+SASS is extension to CSS language
+
+In SASS we are going to write "templates"
+css templates going to compiled as .css file
+
+How to install ?
+
+SASS is working on Ruby lang
+you have to install Ruby
+
+ruby has sass compiler
+
+Example:  //filename.scss
+$font-stack: Helvetica , sans-serif;
+$primary-color: $ primary-color;
+
+body{
+font:100% $font-stack;
+color:$primary-color;
+}
+
+cmd> install ruby
+cmd>  filename.scss
+cmd> 
+
+
+
+
+
 
 
 
