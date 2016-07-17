@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html ng-app="myapp1">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="lib/angular.min.js"></script>
+        <script>
+            var myapp1 = angular.module('myapp1', []);
+           
+            // adding a normal template code to a directive
+            myapp1.directive('dir1', function () {
+                //return directive definition - need to return it as a literal object
+                return{
+                    template:'<div>Hello</div>',
+                 compile: function(ele,attr){
+                     console.log('dir1:compile..');
+                     ele.on('mouseover',function(event){
+                         console.log('mouseover');
+                     });
+                     //JQlite api
+                     console.dir(ele);
+                     ele.css('border','1px solid green');
+                     ele.css('padding','50px');
+                     return{
+                         pre:function(scope,ele,attr){
+                             console.log('dir1:preLink');
+                             
+                             ele.on('click',function(event){
+                                console.log('clicked') ;
+                             });
+                             scope.tnrName = 'Mayank';
+                         },
+                         post: function(scope,ele,attr){
+                             console.log('dir1:postLink');
+                         }
+                     };
+                 }
+                 
+                 
+                };
+            });
+            
+        </script>
+    </head>
+    <body>
+        <div dir1></div>
+       
+    </body>
+</html>
