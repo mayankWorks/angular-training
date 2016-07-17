@@ -354,7 +354,8 @@ color:$primary-color;
 
 cmd> install ruby
 cmd> sass filename.scss // this will convert the scss file to css file
-cmd> 
+cmd> open the file and see the code
+
 
 
 
