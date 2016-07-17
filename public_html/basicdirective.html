@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="myapp1">
+    <head >
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="lib/angular.min.js"></script>
+        <script>
+            var myapp1 = angular.module('myapp1', []);
+            myapp1.directive('hello1', function () {
+                //return directive definition - need to return it as a literal object
+                return{
+                    //1.basic directive information
+                    //2.compile process information
+                    template: '<strong>welcome to Custom</strong>'
+                };
+            });
+            myapp1.directive('helloWorld', function () {// follow naming conventions (camelcasing) smallCapital
+                //return directive definition - need to return it as a literal object
+                return{
+                    //1.basic directive information
+                    //2.compile process information
+                    template: '<strong>welcome to Custom</strong>'
+                };
+            });
+        </script>
+    </head>
+    <body>
+        <div hello1></div>
+        <div hello-world></div>
+    </body>
+</html>

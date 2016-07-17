@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html ng-app="myapp1">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="lib/angular.min.js"></script>
+        <script>
+            var myapp1 = angular.module('myapp1', []);
+            myapp1.controller('DirectiveController',['$scope',function($scope){
+                    $scope.name = 'MAYANK';
+            }]);
+            
+            // adding a normal template code to a directive
+            myapp1.directive('hello', function () {
+                //return directive definition - need to return it as a literal object
+                return{
+                    //1.basic directive information
+                    //2.compile process information
+                    restrict:'M',//A-attribute,E-element,C-comment,M-
+                    replace: true,
+                    template: '<strong>welcome to {{name}}</strong>'
+                };
+            });
+            
+        </script>
+    </head>
+    <body>
+        <div ng-controller="DirectiveController">
+        <div hello></div>
+        <hello></hello>
+        <!-- directive:hello -->
+        <!--<hello></hello>-->
+        </div>
+    </body>
+</html>

@@ -270,9 +270,45 @@ html can be augmented
 Angular Boot Process:
 1.Load HTML into browser
     subprocess - how a DOM TREE is created
-2.
+2.if you have any css , scripts, are downloaded and initialized by browser
+
+3.Your script has to be loaded, before that we have to ensure
+  that DOM Tree is fully ready or not.
+
+  Q.how to make sure that our DOM is loaded into the memory : 
+  A.javascript has event callback called "window.onload".
+    So you have to initialize your application code into the callback.
+
+// if you writing purely javascipt app then code has to be started like this
+function init(){
+
+}
+var init = function(){
+
+}
+window.onload = init; // pass init variable , function can be assigned to a variable
+
+window.onload = function(){
+//init
+}
+
+best practice : IFFE ( immediately-invoked function) design pattern
+its a self executed anonymous function
 
 
+-- in java how to decompile code back to java code.....using JAVAP
+
+how code communicates with the hadrware------using HAL
+
+compile > linking > update the view
+
+writing angular directives
+---------------------------
+
+var myapp=angular.module('myapp',[]);
+myapp.directive('hello',function(){
+
+});
 
 
 
