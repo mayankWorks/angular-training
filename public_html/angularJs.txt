@@ -1,0 +1,287 @@
+Angular JS 
+----------
+
+13th july 2016
+--------------
+
+now html will be developed on client side - not the server side(unlike jsp servlet technologies)
+
+jsfiddle.net
+
+javascript- 
+------------
+1.language basics
+2.functions
+3.00
+4.DOM
+
+module loaders
+
+How angular works: because of HTML5 philosophy
+how to make custome HTML tags
+
+Q.what is the difference between writing scripts in head and body tags.
+A.
+1.browser has html compiler and html parser
+2.css parser
+3.javascript engine
+
+everything we write becomes a node : like a tree nodes
+<meta> tags are only for information
+
+RequireJS is a JavaScript file and module loader
+
+how listeners work in java : using observer patterns
+
+function main(){
+                console.log('Hello this is log');
+            }
+
+Javascript callbacks 
+>> Can we return a function from another function ? YES, bcz each function is a literal
+>> A function can be assigned to a variable (var sum = function(){ asdasdasdsdas })
+
+----------------------------------------------------------------------------------------------------------------------
+
+14th july 2016
+---------------
+
+1.async in java is asynchronous operations | javascript is asynchronous because of browser.
+2.Logs is sync or async ?? its sync
+
+//stack queue heap in javascript
+function main(){
+                //sync
+                console.log('1');
+                console.log('2');
+                //async
+                setTimeout(function(){
+                    console.log('Latter execution'); // this will go and wait in queue
+                },1000);
+                console.log('welcome');
+                console.log('greet');
+                }
+
+inner functions :  quality : they can access outer function variables parameters.
+
+closure means inner functions
+
+scopes : 
+1. local
+2. global scopes // any variable inside scripts tag in global
+3. public scope(objects)
+
+angular.module -- here angular is a global variable
+//module pattern was introduced -- which says use only one global variable in one application throught.
+				
+function can be assigned to a variable and that variable can be called as function
+
+var employee = new Employee()
+object				
+				
+				
+how to access object properties:
+1. .(dot) operators notation
+2. [] square bracket notation
+
+reference.property = getter/setter
+
+				
+Object augmentation
+-------------------
+object can be expanded
+
+in javascript inheritance is achieved at runtime..
+parent/SUPREME object is the "proto OBJECT"	-- this we can see in console.dir(employee);
+
+default values in js:
+---------------------
+var id = empid || 0;
+
+how to return a literal
+-------------------------
+function get Customer(){
+
+car customer = {id:100,
+name:'mayank'};
+
+//return customer
+//or
+return {
+id:100,
+name:'mayank'
+;}
+
+}
+
+--------------------------------------Angular------------------------------------
+used to develope MVC application
+its a SPA framework -  a single page should have navigation to all other pages
+reusable objects in microsoft terminology is a component
+Beans - in java world are reusable objects
+Entity - persistent objects
+
+
+15th July 2015
+--------------
+Angular is offering declarative programming
+React js is also highly declarative
+
+Angular is goint to augment HTML
+Angular name came from <> angular brackets the declarative tags
+
+<h1 data-ng-app="myapp"> data is html5 property, ng is name space package(like: org.spring) , app is the company name (like :CTS)
+
+how to add jquery in angular : using jqlite
+
+ngClick is a directive in module ng
+
+Built in objects:
+-----------------
+1. Non DOM
+	1.Object
+	2.String
+	3.Number
+	4.Date
+	5.Regex
+	6.Array
+
+2. Dom objects
+
+HTML local storage | index db - json storage
+SSE - server sent events
+
+Logging: we have log apis in angular ( $log.error | $log.info)
+
+OFFLINE caching : eg: maps , youtube
+
+In angular how to interact with forms : form element properties
+
+angular providers : for routing
+
+there are 5 ways : value,constant,service,factory,provider
+
+
+Angular Template:
+-----------------
+
+angular expressions - dynamic code
+
+moustache library - {{2*2}}
+expression can be number,string,boolean,objects
+
+Array:
+data structure
+array is object in javascript
+create array
+1.using constuctor pattern
+2.literal pattern
+var list = new Array(1,2,3,4); // not a good practice to do like this
+
+var list = [1,2,3,4]; //we can pass any element including functions
+var list = ['a','b','c'];
+var list = [true,false];
+// you can mix the data types as well
+// type safety is imp , its dangerous
+var list = [2,'test',true];
+
+var customers = [{id:1,name:'test',orders:[{id:33,products:[]},{}]},
+				 {id:2,name:'admin'},
+				 {id:3,name:'admintest'}];// passing literals into array objects
+
+var dependencies=['controller',function(){}]
+
+//internal what is inside $scope - only one id
+var $scope = {$id:1}
+
+what is two way data binding - Event to Model(eg: button click) | Model to view | view to Model 
+----------------------------
+
+React js - one way binding | using virtual DOM to render the page again n again, hence its fast
+--------
+
+Using data and json object:
+---------------------------
+how to wrap object inside form
+
+
+SERVICES:
+---------
+1.value
+2.constant
+3.service //here u dont see any return statement //  a service will have a direct object
+4.factory //here u have return statement 
+5.provider
+
+16th july 2016
+---------------
+
+Modules/sub modules:
+
+create re usable views : called as partials
+
+SPA enables without page refresh we have to load templates
+
+Angular app structure:
+----------------------
+app
+	controller
+			controller.js
+	services
+			services.js
+	Directive
+			dir
+	Filters
+			fil
+	Partials
+			templates
+	app.js(boot file - this is the entry point of application)
+	
+
+	Negotiations in REST
+	--------------------
+Content Negotiation
+Encoding Negotiation
+
+
+$http(config) - will return a promise
+to avoid REST hell callbacks
+
+$http internally returns $q - thats a promise 
+
+how to send data from service to controller
+>we have to send promise to controller
+>we can avoid writing then logic in the contoller
+
+once we have the data - we need to bind the data into the view layer
+
+Theory:
+-------
+Angular internally uses jquery
+
+Angular is creating DSL(Domain Specific Language) for html
+
+html can be augmented
+
+<div ng-controller="controller"> here we are attaching special behavior
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+				
+				
+				
