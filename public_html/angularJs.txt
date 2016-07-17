@@ -263,7 +263,14 @@ Angular is creating DSL(Domain Specific Language) for html
 
 html can be augmented
 
-<div ng-controller="controller"> here we are attaching special behavior
+<div ng-controller="controller"> here we are attaching special behavior || or add javascript function
+
+<div my-tag> ---- style , name , class m comment
+
+Angular Boot Process:
+1.Load HTML into browser
+    subprocess - how a DOM TREE is created
+2.
 
 
 
